@@ -6,7 +6,6 @@
 
 using namespace std;
 
-
 Grid::Grid(int x, int y) {
 
     sizeX = x;
