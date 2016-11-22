@@ -11,18 +11,22 @@
 
 using namespace std;
 
-
 class Grid {
 
 private:
     vector <vector<Point>> map;
+    int sizeX;
+    int sizeY;
 
 public:
+    // Creates a 2D grid of points of given size
     Grid(int x, int y);
+
+    // Prints the grid where point (0,0) is on the bottom left
     void printMap();
-    //void createNeighbors();
 
+    // takes a point, returns a vector of its up to 4 neighbors in clockwise order, from 9 o'clock
+    vector<Point> getNeighbors(Point p);
 };
-
 
 #endif //PART_2_GRID_H

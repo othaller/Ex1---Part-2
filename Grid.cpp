@@ -9,6 +9,9 @@ using namespace std;
 
 Grid::Grid(int x, int y) {
 
+    sizeX = x;
+    sizeY = y;
+
     map.resize(x);
     for (int i = 0; i < x; ++i) {
         map[i].resize(y);
@@ -36,6 +39,22 @@ void Grid::printMap() {
     }
 }
 
-/*void Grid::createNeighbors() {
+vector<Point> Grid::getNeighbors(Point p) {
 
-}*/
+    vector <Point> vec;
+
+    if (p.getX() > 0) {
+        vec.push_back(Point(p.getX() - 1, p.getY()));
+    }
+    if (p.getY() < sizeY - 1) {
+        vec.push_back(Point(p.getX(), p.getY() + 1));
+    }
+    if (p.getX() < sizeX - 1) {
+        vec.push_back(Point(p.getX() + 1, p.getY()));
+    }
+    if (p.getY() > 0) {
+        vec.push_back(Point(p.getX(), p.getY() - 1));
+    }
+
+    return vec;
+}
