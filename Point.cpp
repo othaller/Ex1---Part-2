@@ -2,7 +2,6 @@
 // Created by Oded Thaller & Roey Shefi
 //
 
-#include <iostream>
 #include "Point.h"
 using namespace std;
 
@@ -23,7 +22,7 @@ using namespace std;
     }
 
     void Point::print() {
-        cout << "(" << x << "," << y << ")" << "\n";
+        cout << "(" << x << "," << y << ")";
     }
 
     Point::Point(int a, int b) {

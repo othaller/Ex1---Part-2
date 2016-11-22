@@ -5,6 +5,8 @@
 #ifndef PART_2_POINT_H
 #define PART_2_POINT_H
 
+#include <iostream>
+
 class Point{
 
     private:
