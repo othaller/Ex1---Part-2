@@ -9,9 +9,7 @@
 
 class Point{
 
-    private:
-        int x;
-        int y;
+
 
     public:
         int getX();
@@ -21,6 +19,8 @@ class Point{
         void print();
         Point(int a, int b);
         Point();
+  int x;
+  int y;
 };
 
 #endif //PART_2_POINT_H

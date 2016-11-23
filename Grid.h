@@ -8,13 +8,15 @@
 #include <iostream>
 #include <vector>
 #include "Point.h"
+#include "Map.h"
+#include"GridPoint.h"
 
 using namespace std;
 
-class Grid {
+class Grid: public Map {
 
 private:
-    vector <vector<Point>> map;
+    vector <vector<GridPoint>> map;
     int sizeX;
     int sizeY;
 
@@ -26,7 +28,7 @@ public:
     void printMap();
 
     // takes a point, returns a vector of its up to 4 neighbors in clockwise order, from 9 o'clock
-    vector<Point> getNeighbors(Point p);
+    vector<GridPoint> getNeighbors(GridPoint p);
 };
 
 #endif //PART_2_GRID_H
