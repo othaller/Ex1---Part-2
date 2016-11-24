@@ -17,6 +17,9 @@ vector<GridPoint> Bfs::findShortRoute(GridPoint s, GridPoint f) {
   // Create a queue for BFS
   list<GridPoint> queue;
   vector<GridPoint> route;
+  vector<GridPoint> routeIfFaild;
+  routeIfFaild.push_back(s);
+
 
   // Mark the current node as visited and enqueue it
   s.changeState();
@@ -28,9 +31,7 @@ vector<GridPoint> Bfs::findShortRoute(GridPoint s, GridPoint f) {
   while(!queue.empty()) {
       // Dequeue a vertex from queue and print it
       s = queue.front();
-    if (s.isEqual(f)) {
-      return route;
-    }
+
     route.push_back(s);
 
       queue.pop_front();
@@ -41,10 +42,15 @@ vector<GridPoint> Bfs::findShortRoute(GridPoint s, GridPoint f) {
     temp = (*m).getNeighbors(s);
       for (int i = 0; i < temp.size(); ++i) {
         if (!temp.at(i).getState()) {
+
           temp.at(i).changeState();
           queue.push_back(temp.at(i));
+          if (f.isEqual(temp.at(i))) {
+            route.push_back(temp.at(i));
+            return route;
+          }
         }
       }
     }
-  return route;
+  return routeIfFaild;
 };
