@@ -92,6 +92,7 @@ void Bfs::findShortRoute(GridPoint s, GridPoint f,vector<GridPoint> *gp) {
   //  This is the problem!!!!!!!
   GridPoint *gre = f.fa;
   // this shold be next in the path! but it prints (4,5) (itself).
+  cout<<"this is good if it ISNT '(4,5)': ";
   gre->printFather();
 
           // ((f.fa).fa)->print();
