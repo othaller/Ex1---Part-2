@@ -19,3 +19,11 @@ GridPoint::GridPoint() {
   this->y = 0;
 
 }
+
+bool GridPoint::isEqual(GridPoint a) {
+  if (a.getX() == this->getX() && a.getY() == this->getY()) {
+    return true;
+  }
+  else
+  return false;
+}

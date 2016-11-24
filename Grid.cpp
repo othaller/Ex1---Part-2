@@ -4,6 +4,7 @@
 #include "Map.h"
 #include "GridPoint.h"
 #include "Grid.h"
+#include "Bfs.h"
 using namespace std;
 
 Grid::Grid(int x, int y) {
@@ -31,6 +32,7 @@ Grid::Grid(int x, int y) {
 
         for (int j = 0; j < map[i].size(); ++j) {
 
+//WE CANT PRINT LIKE THIS IN THE ASSIGNMENT
             map[j][i].print();
         }
 
@@ -58,8 +60,34 @@ Grid::Grid(int x, int y) {
     return vec;
 }
 
+// Making evrything false.
+void Grid::initializeGridPoints () {
+  for (int i = 0; i < map.size(); ++i) {
+
+    for (int j = 0; j < map[i].size(); ++j) {
+
+      map[j][i].initialize();
+    }
+  }
+}
+Grid::~Grid() {}
+// Test for the gridPoint integration.
 int main(int argc,char *argv[]) {
     Map *m = new Grid(3,3);
-    m->printMap();
+  vector<GridPoint> route;
+  m->printMap();
+  cout << "\n" "\n";
+
+  Bfs b(m);
+  route = b.findShortRoute(*new GridPoint(0,0),*new GridPoint(1,1));
+  for (int j = 0; j < route.size(); ++j) {
+
+      route[j].print();
+    }
+    cout << "\n";
   }
+
+
+
+
 

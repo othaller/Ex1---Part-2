@@ -16,6 +16,7 @@ class GridPoint : public Point {
   bool getState() { return this->visited;}
   void changeState(){this->visited=true;}
   void initialize  () {this->visited= false;}
+  bool isEqual (GridPoint a);
 
 };
 #endif //PART_2_GRIDPOINT_H
