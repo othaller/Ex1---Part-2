@@ -40,21 +40,21 @@ Grid::Grid(int x, int y) {
     }
 }
 
-  vector<GridPoint> Grid::getNeighbors(GridPoint p) {
+  vector<GridPoint> *Grid::getNeighbors(GridPoint p) {
 
-    vector <GridPoint> vec;
+    vector <GridPoint>* vec = new vector <GridPoint>;
 
     if (p.getX() > 0) {
-        vec.push_back(GridPoint(p.getX() - 1, p.getY()));
+      (*vec).push_back(GridPoint(p.getX() - 1, p.getY()));
     }
     if (p.getY() < sizeY - 1) {
-        vec.push_back(GridPoint(p.getX(), p.getY() + 1));
+      (*vec).push_back(GridPoint(p.getX(), p.getY() + 1));
     }
     if (p.getX() < sizeX - 1) {
-        vec.push_back(GridPoint(p.getX() + 1, p.getY()));
+      (*vec).push_back(GridPoint(p.getX() + 1, p.getY()));
     }
     if (p.getY() > 0) {
-        vec.push_back(GridPoint(p.getX(), p.getY() - 1));
+      (*vec).push_back(GridPoint(p.getX(), p.getY() - 1));
     }
 
     return vec;

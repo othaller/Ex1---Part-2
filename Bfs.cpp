@@ -42,31 +42,32 @@ void Bfs::findShortRoute(GridPoint s, GridPoint f,vector<GridPoint> *gp) {
     // Get all adjacent vertices of the dequeued vertex s
     // If a adjacent has not been visited, then mark it visited
     // and enqueue it
-    temp = (*m).getNeighbors(s);
+
+    temp = ((*m).getNeighbors(s));
     cout << "\n";
     cout << "Mark: \n";
     cout << "\n";
 
 
 
-    for (int i = 0; i < temp.size(); ++i) {
-      if (!temp.at(i).getState()) {
-        temp.at(i).changeState();
-        temp.at(i).assignFather(&s);
+    for (int i = 0; i < (*temp).size(); ++i) {
+      if (!(*temp).at(i).getState()) {
+        (*temp).at(i).changeState();
+        (*temp).at(i).assignFather(&s);
 
         cout << "Son: ";
-        temp.at(i).print();
+        (*temp).at(i).print();
         cout << " ";
         cout << "Father: ";
         s.print();
         cout << "\n";
 
-        queue.push_back(temp.at(i));
+        queue.push_back((*temp).at(i));
       }
 
       // Problen is in here.
-      if (f.isEqual(temp.at(i))) {
-        f = temp.at(i);
+      if (f.isEqual((*temp).at(i))) {
+        f = (*temp).at(i);
         a =1;
         break;
       }
@@ -88,8 +89,12 @@ void Bfs::findShortRoute(GridPoint s, GridPoint f,vector<GridPoint> *gp) {
           cout << "Father of end: ";
           f.fa->print();
           cout<<"\n";
+  //  This is the problem!!!!!!!
+  GridPoint *gre = f.fa;
+  // this shold be next in the path! but it prints (4,5) (itself).
+  gre->printFather();
 
-           //((f.fa).fa)->print();
+          // ((f.fa).fa)->print();
           //GridPoint* tr;
           queue2.push_back(f);
           /**
