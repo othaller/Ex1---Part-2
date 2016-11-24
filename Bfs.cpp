@@ -23,7 +23,7 @@ void Bfs::findShortRoute(GridPoint s, GridPoint f,vector<GridPoint> *gp) {
   GridPoint t = s;
   vector<GridPoint> queue2;
   int a =0;
-
+int e =0;
 
 
   // Mark the current node as visited and enqueue it
@@ -43,35 +43,43 @@ void Bfs::findShortRoute(GridPoint s, GridPoint f,vector<GridPoint> *gp) {
     // If a adjacent has not been visited, then mark it visited
     // and enqueue it
 
-    temp = ((*m).getNeighbors(s));
+    temp[e] = ((*m).getNeighbors(s));
+    /**
+    for (int i = 0; i< ((*temp)[e]).size(); i++) {
+      ((*temp)[e]).at(i);
+    }
+     */
     cout << "\n";
     cout << "Mark: \n";
     cout << "\n";
 
 
 
-    for (int i = 0; i < (*temp).size(); ++i) {
-      if (!(*temp).at(i).getState()) {
-        (*temp).at(i).changeState();
-        (*temp).at(i).assignFather(&s);
+    for (int i = 0; i < ((*temp)[e]).size(); ++i) {
+      // Null pointer
+      // Here is the exception. - Roy on 24/11 20:08
+      if (!((*temp)[e]).at(i).getState()) {
+        ((*temp)[e]).at(i).changeState();
+        ((*temp)[e]).at(i).assignFather(&s);
 
         cout << "Son: ";
-        (*temp).at(i).print();
+        ((*temp)[e]).at(i).print();
         cout << " ";
         cout << "Father: ";
         s.print();
         cout << "\n";
 
-        queue.push_back((*temp).at(i));
+        queue.push_back(((*temp)[e]).at(i));
       }
 
       // Problen is in here.
-      if (f.isEqual((*temp).at(i))) {
-        f = (*temp).at(i);
+      if (f.isEqual(((*temp)[e]).at(i))) {
+        f = ((*temp)[e]).at(i);
         a =1;
         break;
       }
     }
+    ++e;
     if (a == 1) { break;}
   }
           // Starting point test.
@@ -93,7 +101,7 @@ void Bfs::findShortRoute(GridPoint s, GridPoint f,vector<GridPoint> *gp) {
   GridPoint *gre = f.fa;
   // this shold be next in the path! but it prints (4,5) (itself).
   cout<<"this is good if it ISNT '(4,5)': ";
-  gre->printFather();
+  (*gre).printFather();
 
           // ((f.fa).fa)->print();
           //GridPoint* tr;
