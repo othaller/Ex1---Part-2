@@ -87,10 +87,11 @@ cout << (gp).size()<<endl;
   for (int j = 0; j < (gp).size(); ++j) {
     (gp)[j].print();
       cout << "\n";
-
   }
+  m->printMap();
 
-  }
+
+}
 
 
 
