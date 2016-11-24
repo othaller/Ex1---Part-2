@@ -3,7 +3,6 @@
 //
 
 #include <iostream>
-#include <vector>
 #include "Point.h"
 #include "Map.h"
 #include "GridPoint.h"
@@ -26,4 +25,17 @@ bool GridPoint::isEqual(GridPoint a) {
   }
   else
   return false;
+}
+
+void GridPoint::getRouteToStart(GridPoint* g,vector<GridPoint>* an ) {
+
+  (*an).push_back(*g);
+  if ((g) == 0) {
+    return;
+  }
+
+  getRouteToStart((*g).fa,an);
+}
+GridPoint copy() {
+
 }

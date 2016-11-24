@@ -73,18 +73,23 @@ void Grid::initializeGridPoints () {
 Grid::~Grid() {}
 // Test for the gridPoint integration.
 int main(int argc,char *argv[]) {
-    Map *m = new Grid(3,3);
-  vector<GridPoint> route;
+    Map *m = new Grid(10,10);
+  vector<GridPoint> gp;
+  cout << "Grid map (in main class): \n";
   m->printMap();
   cout << "\n" "\n";
 
   Bfs b(m);
-  route = b.findShortRoute(*new GridPoint(0,0),*new GridPoint(1,1));
-  for (int j = 0; j < route.size(); ++j) {
+  //vector<GridPoint>* gp = new vector<GridPoint>;
+  b.findShortRoute(*new GridPoint(2,3),*new GridPoint(5,5),&gp);
+  cout<<"Route size in the Grid Class: "<<(gp).size()<<endl;
+cout << (gp).size()<<endl;
+  for (int j = 0; j < (gp).size(); ++j) {
+    (gp)[j].print();
+      cout << "\n";
 
-      route[j].print();
-    }
-    cout << "\n";
+  }
+
   }
 
 

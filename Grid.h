@@ -16,11 +16,13 @@ using namespace std;
 class Grid: public Map {
 
 private:
-    vector <vector<GridPoint>> map;
     int sizeX;
     int sizeY;
 
 public:
+  vector <vector<GridPoint>> map;
+
+
     // Creates a 2D grid of points of given size
     Grid(int x, int y);
 
@@ -30,6 +32,7 @@ public:
     // takes a point, returns a vector of its up to 4 neighbors in clockwise order, from 9 o'clock
     vector<GridPoint> getNeighbors(GridPoint p);
     void initializeGridPoints ();
+  Map* copy ();
   ~Grid();
 };
 

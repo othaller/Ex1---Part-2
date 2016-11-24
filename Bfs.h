@@ -15,7 +15,7 @@ class Bfs {
  private:vector<GridPoint> temp;
  public:
   Bfs(Map *map);
-  vector<GridPoint> findShortRoute (GridPoint s, GridPoint f);
+  void findShortRoute (GridPoint s, GridPoint  f, vector<GridPoint>* gp);
 };
 
 #endif //PART_2_BFS_H
