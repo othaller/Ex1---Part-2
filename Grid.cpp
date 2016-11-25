@@ -81,7 +81,7 @@ int main(int argc,char *argv[]) {
 
   Bfs b(m);
   //vector<GridPoint>* gp = new vector<GridPoint>;
-  b.findShortRoute(*new GridPoint(2,3),*new GridPoint(5,5),&gp);
+  b.findShortRoute(new GridPoint(2,3),new GridPoint(5,5),&gp);
   cout<<"Route size in the Grid Class: "<<(gp).size()<<endl;
 cout << (gp).size()<<endl;
   for (int j = 0; j < (gp).size(); ++j) {
