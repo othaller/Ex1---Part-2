@@ -11,10 +11,15 @@
 #include "GridPoint.h"
 using namespace std;
 class Bfs {
+  // A copy of the map given to the algorithm.
  private:Map *m;
- private:vector<vector<GridPoint*>*> *temp;
+// Holds the BFS routes crated.
+ private:vector<vector<GridPoint*>*> *rouets;
+
  public:
+  // Constructor.
   Bfs(Map *map);
+  // Finds the shortest routes between two Grid points in the map.
   void findShortRoute (GridPoint* s, GridPoint  *f, vector<GridPoint>* gp);
 };
 
