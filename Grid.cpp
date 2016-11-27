@@ -64,13 +64,13 @@ Grid::Grid(int x, int y) {
       if (p.getY() > 0) {
           (*vec).push_back(map[p.getX()][p.getY() - 1]);
       }
-      if (p.getX() < sizeX - 1) {
-          (*vec).push_back(map[p.getX() + 1][p.getY()]);
-      }
+
       if (p.getY() < sizeY - 1) {
           (*vec).push_back(map[p.getX()][p.getY() + 1]);
       }
-
+    if (p.getX() < sizeX - 1) {
+      (*vec).push_back(map[p.getX() + 1][p.getY()]);
+    }
 
 
     return vec;
@@ -106,6 +106,7 @@ int main() {
     Map *m = new Grid(sizeX, sizeY);
     vector<GridPoint> gp;
     Bfs b(m);
+
     b.findShortRoute(new GridPoint(startX,startY),new GridPoint(endX,endY),&gp);
 
 
