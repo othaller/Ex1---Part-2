@@ -21,16 +21,18 @@ Grid::Grid(int x, int y) {
 
         for (int j = 0; j < y; ++j) {
 
-            map[j][i] = new GridPoint(j, x - 1 - i);
+            //map[j][i] = new GridPoint(j, x - 1 - i);
+            map[i][j] = new GridPoint(i, j);
+
         }
     }
 }
 
   void Grid::printMap() {
 
-    for (int i = 0; i < map.size(); ++i) {
+    for (int i = sizeY - 1; i >= 0; --i) {
 
-        for (int j = 0; j < map[i].size(); ++j) {
+        for (int j = 0; j < sizeX ; ++j) {
 
           (*map[j][i]).print();
         }
@@ -41,9 +43,9 @@ Grid::Grid(int x, int y) {
 
   vector<GridPoint*> *Grid::getNeighbors(GridPoint p) {
 
-    vector <GridPoint*>* vec = new vector <GridPoint*>;
+    vector <GridPoint*> *vec = new vector <GridPoint*>;
 
-    if (p.getX() > 0) {
+/*    if (p.getX() > 0) {
       (*vec).push_back(map[p.getX() - 1][ sizeX - p.getY() -1]);
     }
     if (p.getY() < sizeY - 1) {
@@ -54,7 +56,22 @@ Grid::Grid(int x, int y) {
     }
     if (p.getY() > 0) {
       (*vec).push_back(map[p.getX()][sizeX - p.getY() + 1 -1]);
-    }
+    }*/
+
+      if (p.getX() > 0) {
+          (*vec).push_back(map[p.getX() - 1][p.getY()]);
+      }
+      if (p.getY() > 0) {
+          (*vec).push_back(map[p.getX()][p.getY() - 1]);
+      }
+      if (p.getX() < sizeX - 1) {
+          (*vec).push_back(map[p.getX() + 1][p.getY()]);
+      }
+      if (p.getY() < sizeY - 1) {
+          (*vec).push_back(map[p.getX()][p.getY() + 1]);
+      }
+
+
 
     return vec;
 }
@@ -87,6 +104,7 @@ int main() {
     cin >> endX >> underScore[2] >> endY;
 
     Map *m = new Grid(sizeX, sizeY);
+    m->printMap();
     vector<GridPoint> gp;
     Bfs b(m);
 
