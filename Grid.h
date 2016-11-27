@@ -29,7 +29,7 @@ public:
   /**
    *
    */
-  vector <vector<GridPoint*>> map;
+  vector <vector <GridPoint*> > map;
 
     // Creates a 2D grid of points of given size
   /**
