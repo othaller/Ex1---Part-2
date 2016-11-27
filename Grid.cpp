@@ -104,9 +104,10 @@ int main() {
     cin >> endX >> underScore[2] >> endY;
 
     Map *m = new Grid(sizeX, sizeY);
-    m->printMap();
     vector<GridPoint> gp;
     Bfs b(m);
-
     b.findShortRoute(new GridPoint(startX,startY),new GridPoint(endX,endY),&gp);
+    delete(m);
+
+
 }

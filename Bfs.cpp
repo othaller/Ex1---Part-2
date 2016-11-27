@@ -114,6 +114,11 @@ void Bfs::findShortRoute(GridPoint* s, GridPoint *f,vector<GridPoint> *gp) {
   }
 
   queue2.push_back(*f);
+for ( int i = 0; i<e; ++i) {
+  for (int i = 0; i < (*(rouets->at(e))).size(); ++i) {
+    delete ((rouets->at(e))->at(i));
+  }
+}
 
   return;
 
