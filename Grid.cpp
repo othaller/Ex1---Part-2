@@ -2,7 +2,6 @@
 // Created by Oded Thaller on 22/11/2016.
 //
 #include "Map.h"
-#include "GridPoint.h"
 #include "Grid.h"
 #include "Bfs.h"
 using namespace std;
