@@ -82,7 +82,7 @@ void Grid::initializeGridPoints () {
 
     for (int j = 0; j < map[i].size(); ++j) {
 
-      (*map[j][i]).initialize();
+      (*map[i][j]).initialize();
     }
   }
 }
