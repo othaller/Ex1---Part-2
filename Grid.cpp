@@ -107,7 +107,7 @@ int main() {
     vector<GridPoint> gp;
     Bfs b(m);
     b.findShortRoute(new GridPoint(startX,startY),new GridPoint(endX,endY),&gp);
-    delete(m);
+  delete(m);
 
 
 }
