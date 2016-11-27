@@ -68,9 +68,9 @@ Grid::Grid(int x, int y) {
       if (p.getY() < sizeY - 1) {
           (*vec).push_back(map[p.getX()][p.getY() + 1]);
       }
-    if (p.getX() < sizeX - 1) {
-      (*vec).push_back(map[p.getX() + 1][p.getY()]);
-    }
+      if (p.getX() < sizeX - 1) {
+        (*vec).push_back(map[p.getX() + 1][p.getY()]);
+      }
 
 
     return vec;
