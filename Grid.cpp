@@ -76,14 +76,13 @@ Map* Grid::copy() {
 
 
 Grid::~Grid() {}
-// Test for the gridPoint integration.
 int main(int argc,char *argv[]) {
     Map *m = new Grid(10,10);
-  vector<GridPoint> gp;
-
-  Bfs b(m);
-  //vector<GridPoint>* gp = new vector<GridPoint>;
-  b.findShortRoute(new GridPoint(2,3),new GridPoint(5,5),&gp);
+    vector<GridPoint> gp;
+    Bfs b(m);
+    // Will help for later.
+    // vector<GridPoint>* gp = new vector<GridPoint>;
+    b.findShortRoute(new GridPoint(2,3),new GridPoint(5,5),&gp);
 
 
 

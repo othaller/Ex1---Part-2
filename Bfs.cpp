@@ -79,13 +79,14 @@ void Bfs::findShortRoute(GridPoint* s, GridPoint *f,vector<GridPoint> *gp) {
 
     // For each neighbor, mark as visited and add to queue.
     for (int i = 0; i < (*(rouets->at(e))).size(); ++i) {
-
+      // If not visited, visit.
       if (!((*((*(rouets->at(e))).at(i))).getState())) {
         ((*(rouets->at(e))).at(i))->changeState();
         ((*(rouets->at(e))).at(i))->assignFather(((*(rouets->at( t))).at(b)));
         queue.push_back(((*(rouets->at(e))).at(i)));
       }
 
+      // Checking to see if the neighbor is the target.
       if ((*f).isEqual(*((*(rouets->at(e))).at(i)))) {
         *f = *((*(rouets->at(e))).at(i));
         a =1;
@@ -96,16 +97,17 @@ void Bfs::findShortRoute(GridPoint* s, GridPoint *f,vector<GridPoint> *gp) {
     if (a == 1) { break;}
   }
 
-
-vector<GridPoint*> fat = *new vector<GridPoint*> ;
+// Going back to find to route of ancestry.
+  vector<GridPoint*> fat = *new vector<GridPoint*> ;
   fat.push_back(f);
   while ((*f).fa != 0) {
     fat.push_back(f->fa);
     f = (*f).fa;
   }
-  for (int i = 0; i< fat.size(); ++i) {
+  // Printing the route if ancestry.
+  for (int i = fat.size() -1; i>=0; --i) {
     fat.at(i)->print();
-    if (i+1 != fat.size()){
+    if (i != 0){
       cout<<"\n";
 
     }
