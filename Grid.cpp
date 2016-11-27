@@ -77,12 +77,23 @@ Map* Grid::copy() {
 
 Grid::~Grid() {}
 int main(int argc,char *argv[]) {
-    Map *m = new Grid(10,10);
+    Map *m = new Grid(3,3);
     vector<GridPoint> gp;
+  // start point/
+  int x1;
+  int y1;
+  // End point.
+  int x2;
+  int y2;
+  // Map size
+  int xAx;
+  int yAx;
+  // NEED TO ADD INPUT FROM USER.
+
     Bfs b(m);
     // Will help for later.
     // vector<GridPoint>* gp = new vector<GridPoint>;
-    b.findShortRoute(new GridPoint(2,3),new GridPoint(5,5),&gp);
+    b.findShortRoute(new GridPoint(0,0),new GridPoint(2,2),&gp);
 
 
 
