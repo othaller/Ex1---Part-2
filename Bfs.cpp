@@ -105,18 +105,25 @@ void Bfs::findShortRoute(GridPoint* s, GridPoint *f,vector<GridPoint> *gp) {
     f = (*f).fa;
   }
   // Printing the route if ancestry.
-  for (int i = fat.size() - 1;i >= 0; --i) {
+
+// 10_10,0_0,5_5
+
+  for (int i = fat.size() - 1;i > 0; --i) {
     fat.at(i)->print();
     if (i != 0){
       cout<<"\n";
 
     }
   }
+  fat.at(0)->print();
+
 
   queue2.push_back(*f);
-for ( int i = 0; i<e; ++i) {
-  for (int i = 0; i < (*(rouets->at(e))).size(); ++i) {
-    delete ((rouets->at(e))->at(i));
+for ( int i = 1; i<e; ++i) {
+  for (int j = 0; i < (*(rouets->at(i-1))).size() -1; ++i) {
+    if ((rouets->at(i-1))->at(j) != 0) {
+      delete ((rouets->at(i - 1))->at(j));
+    }
   }
 }
 
