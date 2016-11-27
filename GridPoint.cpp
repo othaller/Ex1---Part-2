@@ -24,6 +24,7 @@ bool GridPoint::isEqual(GridPoint a) {
   return a.getX() == this->getX() && a.getY() == this->getY();
 }
 
+// Will be useful in the futere.
 void GridPoint::getRouteToStart(GridPoint* g,vector<GridPoint>* an ) {
 
   (*an).push_back(*g);

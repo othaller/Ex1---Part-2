@@ -104,10 +104,8 @@ void Bfs::findShortRoute(GridPoint* s, GridPoint *f,vector<GridPoint> *gp) {
     fat.push_back(f->fa);
     f = (*f).fa;
   }
+
   // Printing the route if ancestry.
-
-// 10_10,0_0,5_5
-
   for (int i = fat.size() - 1;i > 0; --i) {
     fat.at(i)->print();
     if (i != 0){
@@ -119,6 +117,7 @@ void Bfs::findShortRoute(GridPoint* s, GridPoint *f,vector<GridPoint> *gp) {
 
 
   queue2.push_back(*f);
+  // Deleting the date structure.
 for ( int i = 1; i<e; ++i) {
   for (int j = 0; i < (*(rouets->at(i-1))).size() -1; ++i) {
     if ((rouets->at(i-1))->at(j) != 0) {

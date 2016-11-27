@@ -12,6 +12,7 @@ Grid::Grid(int x, int y) {
     sizeX = x;
     sizeY = y;
 
+  // Creates the map.
     map.resize(x);
     for (int i = 0; i < x; ++i) {
         map[i].resize(y);
@@ -21,13 +22,11 @@ Grid::Grid(int x, int y) {
 
         for (int j = 0; j < y; ++j) {
 
-            //map[j][i] = new GridPoint(j, x - 1 - i);
             map[i][j] = new GridPoint(i, j);
 
         }
     }
 }
-
   void Grid::printMap() {
 
     for (int i = sizeY - 1; i >= 0; --i) {
@@ -45,29 +44,19 @@ Grid::Grid(int x, int y) {
 
     vector <GridPoint*> *vec = new vector <GridPoint*>;
 
-/*    if (p.getX() > 0) {
-      (*vec).push_back(map[p.getX() - 1][ sizeX - p.getY() -1]);
-    }
-    if (p.getY() < sizeY - 1) {
-      (*vec).push_back(map[p.getX()][sizeX -p.getY() - 1 -1]);
-    }
-    if (p.getX() < sizeX - 1) {
-      (*vec).push_back(map[p.getX() + 1][sizeX - p.getY() -1]);
-    }
-    if (p.getY() > 0) {
-      (*vec).push_back(map[p.getX()][sizeX - p.getY() + 1 -1]);
-    }*/
-
+      // Order of the clock - Right.
       if (p.getX() > 0) {
           (*vec).push_back(map[p.getX() - 1][p.getY()]);
       }
+      // Up.
       if (p.getY() > 0) {
           (*vec).push_back(map[p.getX()][p.getY() - 1]);
       }
-
+      // Left.
       if (p.getY() < sizeY - 1) {
           (*vec).push_back(map[p.getX()][p.getY() + 1]);
       }
+      // Down.
       if (p.getX() < sizeX - 1) {
         (*vec).push_back(map[p.getX() + 1][p.getY()]);
       }
@@ -76,7 +65,7 @@ Grid::Grid(int x, int y) {
     return vec;
 }
 
-// Making everything false.
+// Making everything false - NOT visited.
 void Grid::initializeGridPoints () {
   for (int i = 0; i < map.size(); ++i) {
 
@@ -86,11 +75,12 @@ void Grid::initializeGridPoints () {
     }
   }
 }
+
 // Copys the grid.
 Map* Grid::copy() {
   return new Grid(this->sizeX,this->sizeY);
 }
-
+// De- constructor.
 Grid::~Grid() {}
 
 int main() {
@@ -98,15 +88,16 @@ int main() {
     int sizeX, sizeY, startX, startY, endX, endY;
     char underScore[3];
     char comma[2];
-
+    // Get user input.
     cin >> sizeX >> underScore[0] >> sizeY >> comma[0];
     cin >> startX >> underScore[1] >> startY >> comma[1];
     cin >> endX >> underScore[2] >> endY;
 
     Map *m = new Grid(sizeX, sizeY);
+    // Will be useful in the futere.
     vector<GridPoint> gp;
     Bfs b(m);
-
+    // Find the route.
     b.findShortRoute(new GridPoint(startX,startY),new GridPoint(endX,endY),&gp);
 
 
