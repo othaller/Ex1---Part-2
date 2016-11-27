@@ -22,7 +22,6 @@ class GridPoint : public Point {
   void getRouteToStart (GridPoint *g, vector<GridPoint>* an);
   void assignFather(GridPoint * f) {this->fa = f;}
   void printFather() {cout<<"("<<this->fa->x<<","<<this->fa->y<<")"<<endl;}
-  GridPoint copy();
 
 
 };

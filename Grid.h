@@ -20,7 +20,7 @@ private:
     int sizeY;
 
 public:
-  vector <vector<GridPoint>> map;
+  vector <vector<GridPoint*>> map;
 
 
     // Creates a 2D grid of points of given size
@@ -30,7 +30,7 @@ public:
     void printMap();
 
     // takes a point, returns a vector of its up to 4 neighbors in clockwise order, from 9 o'clock
-    vector<GridPoint>* getNeighbors(GridPoint p);
+    vector<GridPoint*>* getNeighbors(GridPoint p);
     void initializeGridPoints ();
   Map* copy ();
   ~Grid();

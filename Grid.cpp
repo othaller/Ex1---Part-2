@@ -21,7 +21,7 @@ Grid::Grid(int x, int y) {
 
         for (int j = 0; j < y; ++j) {
 
-            map[j][i] = GridPoint(j, x - 1 - i);
+            map[j][i] = new GridPoint(j, x - 1 - i);
         }
     }
 }
@@ -32,29 +32,28 @@ Grid::Grid(int x, int y) {
 
         for (int j = 0; j < map[i].size(); ++j) {
 
-//WE CANT PRINT LIKE THIS IN THE ASSIGNMENT
-            map[j][i].print();
+          (*map[j][i]).print();
         }
 
         cout << "\n";
     }
 }
 
-  vector<GridPoint> *Grid::getNeighbors(GridPoint p) {
+  vector<GridPoint*> *Grid::getNeighbors(GridPoint p) {
 
-    vector <GridPoint>* vec = new vector <GridPoint>;
+    vector <GridPoint*>* vec = new vector <GridPoint*>;
 
     if (p.getX() > 0) {
-      (*vec).push_back(GridPoint(p.getX() - 1, p.getY()));
+      (*vec).push_back(map[p.getX() - 1][ sizeX - p.getY() -1]);
     }
     if (p.getY() < sizeY - 1) {
-      (*vec).push_back(GridPoint(p.getX(), p.getY() + 1));
+      (*vec).push_back(map[p.getX()][sizeX -p.getY() - 1 -1]);
     }
     if (p.getX() < sizeX - 1) {
-      (*vec).push_back(GridPoint(p.getX() + 1, p.getY()));
+      (*vec).push_back(map[p.getX() + 1][sizeX - p.getY() -1]);
     }
     if (p.getY() > 0) {
-      (*vec).push_back(GridPoint(p.getX(), p.getY() - 1));
+      (*vec).push_back(map[p.getX()][sizeX - p.getY() + 1 -1]);
     }
 
     return vec;
@@ -66,29 +65,26 @@ void Grid::initializeGridPoints () {
 
     for (int j = 0; j < map[i].size(); ++j) {
 
-      map[j][i].initialize();
+      (*map[j][i]).initialize();
     }
   }
 }
+// Copys the grid.
+Map* Grid::copy() {
+  return new Grid(this->sizeX,this->sizeY);
+}
+
+
 Grid::~Grid() {}
 // Test for the gridPoint integration.
 int main(int argc,char *argv[]) {
     Map *m = new Grid(10,10);
   vector<GridPoint> gp;
-  cout << "Grid map (in main class): \n";
-  m->printMap();
-  cout << "\n" "\n";
 
   Bfs b(m);
   //vector<GridPoint>* gp = new vector<GridPoint>;
   b.findShortRoute(new GridPoint(2,3),new GridPoint(5,5),&gp);
-  cout<<"Route size in the Grid Class: "<<(gp).size()<<endl;
-cout << (gp).size()<<endl;
-  for (int j = 0; j < (gp).size(); ++j) {
-    (gp)[j].print();
-      cout << "\n";
-  }
-  m->printMap();
+
 
 
 }

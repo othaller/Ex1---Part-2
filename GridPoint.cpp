@@ -36,6 +36,3 @@ void GridPoint::getRouteToStart(GridPoint* g,vector<GridPoint>* an ) {
 
   getRouteToStart((*g).fa,an);
 }
-GridPoint copy() {
-
-}

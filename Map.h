@@ -11,9 +11,10 @@ using namespace std;
 //interface
 class Map {
  public:
-  virtual vector<GridPoint> *getNeighbors(GridPoint) =0;
+  virtual vector<GridPoint*> *getNeighbors(GridPoint) =0;
   virtual void printMap() =0;
   virtual void initializeGridPoints() =0;
+  virtual Map* copy() =0;
   virtual ~Map() {};
 };
 #endif //PART_2_MAP_H

@@ -12,7 +12,7 @@
 using namespace std;
 class Bfs {
  private:Map *m;
- private:vector<vector<GridPoint>*> *temp;
+ private:vector<vector<GridPoint*>*> *temp;
  public:
   Bfs(Map *map);
   void findShortRoute (GridPoint* s, GridPoint  *f, vector<GridPoint>* gp);
