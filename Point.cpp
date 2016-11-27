@@ -3,6 +3,7 @@
 //
 
 #include "Point.h"
+
 using namespace std;
 
     int Point::getX() {
@@ -34,6 +35,3 @@ using namespace std;
         x = 0;
         y = 0;
     }
-
-
-

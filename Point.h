@@ -9,8 +9,6 @@
 
 class Point{
 
-
-
     public:
         int getX();
         int getY();

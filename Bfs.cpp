@@ -5,8 +5,8 @@
 #include "Bfs.h"
 #include <list>
 
-
 using namespace std;
+
 // Mark all the vertices as not visited
 Bfs::Bfs (Map* map) {
   m = map->copy();
@@ -17,16 +17,16 @@ void Bfs::findShortRoute(GridPoint* s, GridPoint *f,vector<GridPoint> *gp) {
   // Create a queue for BFS
   list<GridPoint*> queue;
   // Will be handy in next assignments.
-  vector<GridPoint> routeIfFaild;
-  routeIfFaild.push_back(*s);
+  vector<GridPoint> routeIfFailed;
+  routeIfFailed.push_back(*s);
   // Reference.
   GridPoint *start = s;
   vector<GridPoint> queue2;
   // Flags.
-  int a =0;
+  int a = 0;
   // e - Number of while loops.
-  int e =1;
-  int b =0;
+  int e = 1;
+  int b = 0;
 
 
   // Mark the current node as visited and enqueue it
@@ -41,8 +41,8 @@ void Bfs::findShortRoute(GridPoint* s, GridPoint *f,vector<GridPoint> *gp) {
   (*((*rouets).at(0))->at(0)).changeState();
 
   // Flags.
-  int t =0;
-  int p =0;
+  int t = 0;
+  int p = 0;
 
   // Where all the action happens!
   while(!queue.empty()) {
@@ -56,15 +56,15 @@ void Bfs::findShortRoute(GridPoint* s, GridPoint *f,vector<GridPoint> *gp) {
     // This loop is to find who is whos parent.
     if (e != 1) {
       for ( t = 1; t < rouets->size(); ++t) {
-        for (int i = 0; i < (*(rouets->at(e -  t))).size(); ++i) {
+        for (int i = 0; i < (*(rouets->at(e - t))).size(); ++i) {
           if ((*s).isEqual(*(*(rouets->at(e - t))).at(i))) {
             b = i;
-            t = e -t;
-            p =1;
+            t = e - t;
+            p = 1;
             break;
           }
         }
-        if (p ==1) { break;}
+        if (p == 1) { break;}
       }
     }
     else {
@@ -89,7 +89,7 @@ void Bfs::findShortRoute(GridPoint* s, GridPoint *f,vector<GridPoint> *gp) {
       // Checking to see if the neighbor is the target.
       if ((*f).isEqual(*((*(rouets->at(e))).at(i)))) {
         *f = *((*(rouets->at(e))).at(i));
-        a =1;
+        a = 1;
         break;
       }
     }
@@ -105,7 +105,7 @@ void Bfs::findShortRoute(GridPoint* s, GridPoint *f,vector<GridPoint> *gp) {
     f = (*f).fa;
   }
   // Printing the route if ancestry.
-  for (int i = fat.size() -1; i>=0; --i) {
+  for (int i = fat.size() - 1;i >= 0; --i) {
     fat.at(i)->print();
     if (i != 0){
       cout<<"\n";

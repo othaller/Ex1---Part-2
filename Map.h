@@ -10,6 +10,7 @@
 using namespace std;
 //interface
 class Map {
+
  public:
   virtual vector<GridPoint*> *getNeighbors(GridPoint) =0;
   virtual void printMap() =0;

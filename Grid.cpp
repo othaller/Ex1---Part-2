@@ -2,9 +2,9 @@
 // Created by Oded Thaller on 22/11/2016.
 //
 #include "Map.h"
-#include "GridPoint.h"
 #include "Grid.h"
 #include "Bfs.h"
+
 using namespace std;
 
 Grid::Grid(int x, int y) {
@@ -59,7 +59,7 @@ Grid::Grid(int x, int y) {
     return vec;
 }
 
-// Making evrything false.
+// Making everything false.
 void Grid::initializeGridPoints () {
   for (int i = 0; i < map.size(); ++i) {
 
@@ -74,32 +74,21 @@ Map* Grid::copy() {
   return new Grid(this->sizeX,this->sizeY);
 }
 
-
 Grid::~Grid() {}
-int main(int argc,char *argv[]) {
-    Map *m = new Grid(3,3);
+
+int main() {
+
+    int sizeX, sizeY, startX, startY, endX, endY;
+    char underScore[3];
+    char comma[2];
+
+    cin >> sizeX >> underScore[0] >> sizeY >> comma[0];
+    cin >> startX >> underScore[1] >> startY >> comma[1];
+    cin >> endX >> underScore[2] >> endY;
+
+    Map *m = new Grid(sizeX, sizeY);
     vector<GridPoint> gp;
-  // start point/
-  int x1;
-  int y1;
-  // End point.
-  int x2;
-  int y2;
-  // Map size
-  int xAx;
-  int yAx;
-  // NEED TO ADD INPUT FROM USER.
-
     Bfs b(m);
-    // Will help for later.
-    // vector<GridPoint>* gp = new vector<GridPoint>;
-    b.findShortRoute(new GridPoint(0,0),new GridPoint(2,2),&gp);
 
-
-
+    b.findShortRoute(new GridPoint(startX,startY),new GridPoint(endX,endY),&gp);
 }
-
-
-
-
-

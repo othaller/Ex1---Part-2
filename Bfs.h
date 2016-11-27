@@ -4,17 +4,21 @@
 
 #ifndef PART_2_BFS_H
 #define PART_2_BFS_H
+
 #include "Map.h"
 #include <iostream>
 #include <vector>
 #include "Point.h"
 #include "GridPoint.h"
+
 using namespace std;
+
 class Bfs {
   // A copy of the map given to the algorithm.
- private:Map *m;
+ private:
+    Map *m;
 // Holds the BFS routes crated.
- private:vector<vector<GridPoint*>*> *rouets;
+    vector<vector<GridPoint*>*> *rouets;
 
  public:
   // Constructor.

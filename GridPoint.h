@@ -4,15 +4,18 @@
 
 #ifndef PART_2_GRIDPOINT_H
 #define PART_2_GRIDPOINT_H
+
 #include <iostream>
 #include "vector"
 #include "Point.h"
 
 using namespace std;
+
 class GridPoint : public Point {
- private:bool visited;
- public:GridPoint *fa;
+ private:
+    bool visited;
  public:
+    GridPoint *fa;
   // Constructor.
   GridPoint (int a, int b);
   GridPoint();
@@ -47,7 +50,6 @@ class GridPoint : public Point {
    * Printsthe gridponits father.
    */
   void printFather() {cout<<"("<<this->fa->x<<","<<this->fa->y<<")"<<endl;}
-
 
 };
 #endif //PART_2_GRIDPOINT_H

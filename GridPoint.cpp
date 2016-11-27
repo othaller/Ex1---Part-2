@@ -5,7 +5,7 @@
 #include <iostream>
 #include "Point.h"
 #include "Map.h"
-#include "GridPoint.h"
+
 using namespace std;
 
 GridPoint::GridPoint(int a, int b) {
@@ -13,6 +13,7 @@ GridPoint::GridPoint(int a, int b) {
   this->x = a;
   this->y = b;
 }
+
 GridPoint::GridPoint() {
   this->x = 0;
   this->y = 0;
@@ -20,11 +21,7 @@ GridPoint::GridPoint() {
 }
 
 bool GridPoint::isEqual(GridPoint a) {
-  if (a.getX() == this->getX() && a.getY() == this->getY()) {
-    return true;
-  }
-  else
-  return false;
+  return a.getX() == this->getX() && a.getY() == this->getY();
 }
 
 void GridPoint::getRouteToStart(GridPoint* g,vector<GridPoint>* an ) {
