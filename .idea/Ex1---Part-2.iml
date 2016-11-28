@@ -2,16 +2,21 @@
 <module type="CPP_MODULE" version="4">
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
-      <sourceFolder url="file://$MODULE_DIR$/GridPoint.cpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Bfs.cpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Bfs.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/GridPoint.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Map.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Grid.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Grid.cpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Point.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Point.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Point.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/CMakeLists.txt" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Trip.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/GridPoint.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Grid.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Bfs.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Passenger.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/GridPoint.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Passenger.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Bfs.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Cab.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Grid.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Trip.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Map.h" isTestSource="false" />
     </content>
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module-library">
